@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Vdg - Greetings{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <p>{{ message }}</p>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                {% endfor %}
+            {% endif %}
+
+            <p>
+                Welcome to the home base of Militaires Sans Frontieres!
+                This is Naked Snake, the founder and leader of our organization.
+                As a group of soldiers without borders, we strive to uphold the principles of loyalty, honor, and
+                integrity in all of our endeavors. Whether you're a member of our team or a visitor to our site,
+                we extend a warm welcome and invite you to explore all that we have to offer.
+                From training and missions to camaraderie and support,
+                we are committed to providing a home for those who share our values.
+                Thank you for joining us, and let's continue to forge our path forward together.
+            </p>
+            <p>
+                Here at Militaires Sans Frontieres, we believe that a true soldier is not defined by their uniform,
+                but by their actions and beliefs. That's why we stand for the freedom to choose our own battles,
+                and fight for causes that we believe in, regardless of political or national boundaries.
+                Our mission is to create a world where every soldier has the opportunity to serve with honor, dignity,
+                and purpose.
+            </p>
+            <p>
+                As part of our community, you'll have access to a wealth of resources and support,
+                including specialized training programs, cutting-edge technology and equipment,
+                and a network of like-minded individuals who share your passion for excellence.
+                Our team is made up of soldiers from all over the world, and we welcome diversity in all forms.
+            </p>
+            <p>
+                So whether you're a seasoned veteran or a newcomer to the field,
+                we invite you to join us on this journey towards a better future for all.
+                With your help, we can build a world where soldiers can serve with pride,
+                and make a difference in the lives of those around us.
+                Thank you for choosing Militaires Sans Frontieres,
+                and we look forward to working together towards a brighter tomorrow.
+            </p>
+            <p>
+                At Militaires Sans Frontieres, we understand that the life of a soldier can be a challenging one.
+                That's why we place a strong emphasis on camaraderie and support, both on and off the battlefield.
+                Our members are more than just soldiers; they are a family,
+                bound by a shared sense of purpose and commitment to one another.
+            </p>
+            <p>
+                We believe that everyone deserves the chance to lead a fulfilling and meaningful life,
+                and that includes soldiers. That's why we offer a range of programs and resources designed to promote
+                personal growth and development, from leadership training and mental health support to recreational
+                activities and community outreach.
+            </p>
+            <p>
+                Our organization is built on a foundation of trust and mutual respect,
+                and we take pride in our ability to create a safe and welcoming environment for all.
+                No matter where you come from or what your background may be, you will always find a home among us.
+            </p>
+            <p>
+                So if you're ready to take your place among the ranks of the finest soldiers in the world,
+                we invite you to join us at Militaires Sans Frontieres. Together, we can achieve greatness and make a
+                difference in the world. Thank you for considering us, and we hope to welcome you into our family soon.
+            </p>
+        </div>
+    </div>
+{% endblock %}

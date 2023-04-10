@@ -1,0 +1,22 @@
+a {
+  text-decoration: none;
+}
+
+.cb-p p {
+  margin: 0;
+}
+
+.card .post-img {
+  pointer-events: none;
+}
+.card .post-header h5 {
+  margin-top: 0.5rem;
+}
+.card .post-header p {
+  margin-bottom: 0;
+}
+.card .timestamp {
+  margin-left: 5px;
+}
+
+/*# sourceMappingURL=main.css.map */

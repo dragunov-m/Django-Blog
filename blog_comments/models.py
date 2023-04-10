@@ -12,7 +12,7 @@ class Comment(models.Model):
     parent = models.ForeignKey('self', null=True, blank=True, on_delete=models.CASCADE, related_name='replies')
 
     class Meta:
-        ordering = ['-date_posted']
+        ordering = ['-pub_date']
 
     def __str__(self):
         return str(self.author) + 'comment' + str(self.content)
