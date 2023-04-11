@@ -1,6 +1,7 @@
-from django.shortcuts import render
-from django.http import HttpResponse
+from django.contrib.auth.decorators import login_required
+from django.shortcuts import render, redirect
 from .models import Post, Author
+from .forms import PostForm
 from django.db.models import Q
 
 
@@ -13,7 +14,7 @@ def about(request):
 
 
 def blog_page(request):
-    posts = Post.objects.all()
+    posts = Post.objects.filter(featured=True)
     context = {
         'posts': posts
     }
@@ -22,6 +23,9 @@ def blog_page(request):
 
 def single_post(request, pk):
     post = Post.objects.get(id=pk)
+    if request.user.is_authenticated:
+        post.views += 1
+        post.save()
     context = {
         'post': post
     }
@@ -52,5 +56,18 @@ def search(request):
     return render(request, 'blog/search_page.html', context)
 
 
+@login_required()
 def add_post(request):
-    return HttpResponse('New post page')
+    if request.method == 'POST':
+        form = PostForm(request.POST)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.author = request.user.author
+            post.save()
+            return redirect('blog:blog')
+    else:
+        form = PostForm()
+    context = {
+        'form': form,
+    }
+    return render(request, 'blog/new_post_page.html', context)
