@@ -27,12 +27,5 @@ class Post(models.Model):
     author = models.ForeignKey(Author, on_delete=models.CASCADE)
     thumbnail = models.ImageField(default='blog/post_tbs/thumbnail.png', upload_to='blog/post_tbs/')
     categories = models.ManyToManyField(Category)
-    featured = models.BooleanField()
+    featured = models.BooleanField(default=False)
     views = models.IntegerField(default=0)
-
-    def __str__(self):
-        return self.title
-
-    def update_views_counter(self):
-        self.views = self.views + 1
-        super(Post, self).save()
