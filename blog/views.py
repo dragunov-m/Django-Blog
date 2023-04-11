@@ -56,7 +56,7 @@ def search(request):
     return render(request, 'blog/search_page.html', context)
 
 
-@login_required()
+@login_required(login_url='blog_auth:login')
 def add_post(request):
     if request.method == 'POST':
         form = PostForm(request.POST)
