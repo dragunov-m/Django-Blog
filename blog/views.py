@@ -1,8 +1,10 @@
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth import get_user_model
 from django.shortcuts import render, redirect
 from .models import Post, Author
 from .forms import PostForm
 from django.db.models import Q
+User = get_user_model()
 
 
 def home(request):
@@ -32,9 +34,9 @@ def single_post(request, pk):
     return render(request, 'blog/single_post_page.html', context)
 
 
-def posts_by_author(request, author_id):
-    author = Author.objects.get(user=author_id)
-    posts = Post.objects.filter(author=author_id)
+def posts_by_author(request, username):
+    author = User.objects.get(username=username)
+    posts = Post.objects.filter(author__user_id=author)
     context = {
         'author': author,
         'posts': posts,
