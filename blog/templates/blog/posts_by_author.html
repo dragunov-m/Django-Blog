@@ -12,8 +12,8 @@
                 <div class="card">
                     {% comment %}{% for category in post.categories.all %}{% endcomment %}
                     <div class="card-header post-header">
-                        <div class="d-flex">
-                            <img src="{{ author.profile_picture.url }}" class="post-profile-pic" alt="{{ author.user.username }}'s profile picture">
+                        <div class="d-flex align-items-center">
+                            <img src="{{ post.author.profile_picture.url }}" class="post-profile-pic me-2" alt="{{ post.author.user.username }}'s profile picture">
                             <p>{{ post.author }}</p>
                             <p class="card-text timestamp"><small class="text-muted">{{ post.timestamp|date:"d/m/Y G:i" }}</small></p>
                         </div>
