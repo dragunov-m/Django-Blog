@@ -53,6 +53,7 @@
                     {% endwith %}
                             <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
                                 <li><a class="dropdown-item" href="{% url 'blog:new_post' %}">New post</a></li>
+                                <li><a class="dropdown-item" href="{% url 'blog:posts_by_author' username=user.username %}">My posts</a></li>
                                 <li><a class="dropdown-item" href="{% url 'blog_auth:profile' %}">Profile</a></li>
                                 <li><hr class="dropdown-divider"></li>
                                 <li><a class="dropdown-item" href="{% url 'blog_auth:logout' %}">Sign out</a></li>
