@@ -30,5 +30,8 @@ class Post(models.Model):
     featured = models.BooleanField(default=False)
     views = models.IntegerField(default=0)
 
+    class Meta:
+        ordering = ['-timestamp']
+
     def __str__(self):
         return self.title

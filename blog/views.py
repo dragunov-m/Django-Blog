@@ -10,12 +10,14 @@ User = get_user_model()
 
 class HomePage(TemplateView):
     template_name = 'blog/welcome_page.html'
+
 # def home(request):
 #     return render(request, 'blog/welcome_page.html')
 
 
 class AboutPage(TemplateView):
     template_name = 'blog/about_page.html'
+
 # def about(request):
 #     return render(request, 'blog/about_page.html')
 
@@ -27,7 +29,9 @@ class BlogPage(ListView):
     paginate_by = 10
 
     def get_queryset(self):
-        return Post.objects.filter(featured=True)
+        queryset = super().get_queryset()
+        queryset.filter(featured=True).order_by('-timestamp')
+        return queryset
 
 # def blog_page(request):
 #     posts = Post.objects.filter(featured=True)
@@ -41,6 +45,13 @@ class PostPage(DetailView):
     model = Post
     template_name = 'blog/single_post_page.html'
     context_object_name = 'post'
+
+    def get_object(self, queryset=None):
+        obj = super().get_object(queryset=queryset)
+        if self.request.user.is_authenticated:
+            obj.views += 1
+            obj.save()
+        return obj
 
 # def single_post(request, pk):
 #     post = Post.objects.get(id=pk)
@@ -94,7 +105,6 @@ class SearchPost(ListView):
                 Q(content__contains=query)
             ).distinct()
         return queryset
-
 
 # def search(request):
 #     queryset = Post.objects.all()
