@@ -1,13 +1,13 @@
 from django.urls import path
-from . import views
+from .views import AddPost, HomePage, AboutPage, BlogPage, PostPage, AuthorPost, SearchPost
 
 app_name = 'blog'
 urlpatterns = [
-    path('', views.home, name='home'),
-    path('about/', views.about, name='about'),
-    path('blog/', views.blog_page, name='blog'),
-    path('blog/posts-by-<str:username>/', views.posts_by_author, name='posts_by_author'),
-    path('blog/new-post/', views.add_post, name='new_post'),
-    path('blog/post/<int:pk>/', views.single_post, name='post'),
-    path('blog/search/', views.search, name='search'),
+    path('', HomePage.as_view(), name='home'),
+    path('about/', AboutPage.as_view(), name='about'),
+    path('blog/', BlogPage.as_view(), name='blog'),
+    path('blog/<str:username>/posts/', AuthorPost.as_view(), name='posts_by_author'),
+    path('blog/new-post/', AddPost.as_view(), name='new_post'),
+    path('blog/post/<int:pk>/', PostPage.as_view(), name='post'),
+    path('blog/search/', SearchPost.as_view(), name='search'),
 ]

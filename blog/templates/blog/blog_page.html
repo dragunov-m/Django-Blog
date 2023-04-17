@@ -37,6 +37,39 @@
 
             </div>
             {% endfor %}
+
+            <div class="pagination d-flex justify-content-center">
+                <span class="step-links">
+
+                    <span class="current">
+                        Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                    </span>
+
+                    {% if page_obj.has_previous %}
+                        <ul class="pagination">
+                            <li class="page-item">
+                                <a class="page-link" href="?page=1">&laquo; first</a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" href="?page={{ page_obj.previous_page_number }}">previous</a>
+                            </li>
+                        </ul>
+                    {% endif %}
+
+                    {% if page_obj.has_next %}
+                        <ul class="pagination">
+                            <li class="page-item">
+                                <a class="page-link" href="?page={{ page_obj.next_page_number }}">next</a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+                            </li>
+                        </ul>
+                    {% endif %}
+
+                </span>
+            </div>
+
         </div>
     </div>
 
