@@ -1,15 +1,10 @@
 from django.contrib.auth import get_user_model
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.forms import model_to_dict
 from django.urls import reverse_lazy
 from django.db.models import Q
 from django.views.generic import ListView, DetailView, CreateView, TemplateView
-# from rest_framework import generics
-from rest_framework.response import Response
-from rest_framework.views import APIView
 from .models import Post
 from .forms import PostForm
-# from .serializers import BlogPageSerializer
 User = get_user_model()
 
 
@@ -37,21 +32,6 @@ class BlogPage(ListView):
         queryset = super().get_queryset()
         queryset.filter(featured=True).order_by('-timestamp')
         return queryset
-
-
-class BlogPageAPI(APIView):
-
-    def get(self, request):
-        lst = Post.objects.all().values()
-        return Response({'posts': list(lst)})
-
-    def post(self, request):
-        post_new = Post.objects.create(
-            title=request.data['title'],
-            content=request.data['content'],
-            author_id=request.data['author_id'],
-        )
-        return Response({'post': model_to_dict(post_new)})
 
 
 # class BlogPageAPI(generics.ListAPIView):
