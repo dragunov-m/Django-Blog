@@ -9,5 +9,17 @@
         <p>{{ post.content }}</p>
         <p>{{ post.categories }}</p>
         <p>{{ post.views }}</p>
+        <hr>
+        <h4>Comments</h4>
+        {% for comment in post.comment_set.all %}
+            <div>
+                {% include 'blog/parts/comment.html' %}
+            </div>
+            {% empty %}
+            <p>This post doesn't contain comments</p>
+        {% endfor %}
+        <div>
+            {% include 'blog_comments/add_comment.html' %}
+        </div>
     </div>
 {% endblock %}
