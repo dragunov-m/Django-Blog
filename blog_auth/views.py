@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth import authenticate, login, logout, get_user_model
+from django.contrib.auth import get_user_model
 # from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.views import LoginView
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse_lazy
 from django.contrib import messages
@@ -61,31 +62,44 @@ def profile(request):
     return render(request, 'blog_auth/profile_page.html', context)
 
 
-def login_page(request):
-    if request.user.is_authenticated:
-        return redirect('blog:home')
-    else:
-        if request.method == 'POST':
-            username = request.POST.get('username')
-            password = request.POST.get('password')
-            user = authenticate(request, username=username, password=password)
-            if user is not None:
-                login(request, user)
-                messages.success(request, f'Welcome back, {user.username}!')
-                return redirect('blog:home')
-            else:
-                messages.error(request, 'Invalid login or password')
-                return redirect('blog_auth:login')
+# def login_page(request):
+#     if request.user.is_authenticated:
+#         return redirect('blog:home')
+#     else:
+#         if request.method == 'POST':
+#             username = request.POST.get('username')
+#             password = request.POST.get('password')
+#             user = authenticate(request, username=username, password=password)
+#             if user is not None:
+#                 login(request, user)
+#                 messages.success(request, f'Welcome back, {user.username}!')
+#                 return redirect('blog:home')
+#             else:
+#                 messages.error(request, 'Invalid login or password')
+#                 return redirect('blog_auth:login')
+#
+#         # GET
+#         error_message = request.session.pop('error_message', None)
+#
+#     return render(request, 'blog_auth/login_page.html', {'error_message': error_message})
 
-        # GET
-        error_message = request.session.pop('error_message', None)
 
-    return render(request, 'blog_auth/login_page.html', {'error_message': error_message})
+class CustomLoginView(LoginView):
+    template_name = 'blog_auth/login_page.html'
+    redirect_authenticated_user = True
+
+    def form_valid(self, form):
+        messages.success(self.request, f'Welcome back, {self.request.user.username}!')
+        return super().form_valid(form)
+
+    def form_invalid(self, form):
+        messages.error(self.request, 'Invalid login or password')
+        return super().form_invalid(form)
 
 
-def logout_page(request):
-    logout(request)
-    return redirect('blog:home')
+# def logout_page(request):
+#     logout(request)
+#     return redirect('blog:home')
 
 
 class SignUp(CreateView):
@@ -101,6 +115,7 @@ class SignUp(CreateView):
 
     def form_valid(self, form):
         return super().form_valid(form)
+
 
 # def signup_page(request):
 #     if request.user.is_authenticated:
