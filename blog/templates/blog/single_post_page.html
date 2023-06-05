@@ -11,7 +11,7 @@
         <p>{{ post.views }}</p>
         <hr>
         <h4>Comments</h4>
-        {% for comment in post.comment_set.all %}
+        {% for comment in post.comments.all %}
             <div>
                 {% include 'blog/parts/comment.html' %}
             </div>
