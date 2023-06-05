@@ -68,7 +68,7 @@ class PostPage(FormMixin, DetailView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        comments = self.object.comment_set.all()
+        comments = self.object.comments.all()
         comment_form = CommentForm()
         context['comments'] = comments
         context['comment_form'] = comment_form
