@@ -18,6 +18,7 @@ djangorestframework-simplejwt==5.2.2
 djoser==2.2.0
 idna==3.4
 kombu==5.2.4
+Markdown==3.4.3
 oauthlib==3.2.2
 Pillow==9.5.0
 prompt-toolkit==3.0.38

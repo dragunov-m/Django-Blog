@@ -10,9 +10,8 @@ from django.views.generic.edit import FormMixin
 from .models import Post
 from .forms import PostForm
 from blog_comments.forms import CommentForm
+import markdown
 User = get_user_model()
-
-# TODO: Fix profile images in posts and comments (issue is in logic)
 
 
 class HomePage(TemplateView):
@@ -34,6 +33,13 @@ class BlogPage(ListView):
     template_name = 'blog/blog_page.html'
     context_object_name = 'posts'
     paginate_by = 10
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        posts = context['object_list']
+        for post in posts:
+            post.content = markdown.markdown(post.content)
+        return context
 
     def get_queryset(self):
         queryset = super().get_queryset()
@@ -72,6 +78,9 @@ class PostPage(FormMixin, DetailView):
         comment_form = CommentForm()
         context['comments'] = comments
         context['comment_form'] = comment_form
+        post = self.object
+        content = markdown.markdown(post.content)
+        context['content'] = content
         return context
 
     def post(self, request, *args, **kwargs):
@@ -118,6 +127,9 @@ class AuthorPost(ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['author'] = User.objects.get(username=self.kwargs['username'])
+        posts = context['object_list']
+        for post in posts:
+            post.content = markdown.markdown(post.content)
         return context
 
 # def posts_by_author(request, username):
@@ -133,8 +145,15 @@ class AuthorPost(ListView):
 class SearchPost(ListView):
     model = Post
     template_name = 'blog/search_page.html'
-    context_object_name = 'queryset'
+    context_object_name = 'object_list'
     paginate_by = 10
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        posts = context['object_list']
+        for post in posts:
+            post.content = markdown.markdown(post.content)
+        return context
 
     def get_queryset(self):
         queryset = super().get_queryset()
