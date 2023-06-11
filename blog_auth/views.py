@@ -107,6 +107,12 @@ class SignUp(CreateView):
     form_class = UserRegistrationForm
     success_url = reverse_lazy('blog:home')
 
+    def dispatch(self, request, *args, **kwargs):
+        if self.request.user.is_authenticated:
+            return redirect('blog:home')
+
+        return super().dispatch(request, *args, **kwargs)
+
     # def get(self, request, *args, **kwargs):
     #     if self.request.user.is_authenticated:
     #         return redirect(self.get_success_url())

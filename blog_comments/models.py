@@ -1,12 +1,12 @@
 from django.db import models
-from blog.models import Post
+from blog.models import Post, Author
 from django.contrib.auth import get_user_model
 User = get_user_model()
 
 
 class Comment(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='comments')
-    author = models.ForeignKey(User, on_delete=models.CASCADE)
+    author = models.ForeignKey(Author, on_delete=models.CASCADE)
     content = models.TextField()
     pub_date = models.DateTimeField(auto_now_add=True)
 

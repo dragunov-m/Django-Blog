@@ -11,13 +11,13 @@
             <h5 class="card-title">{{ post.title }}</h5>
             <div class="d-flex">
                 <p class="me-2"><i class="fa-solid fa-eye me-1"></i>{{ post.views }}</p>
-                <p><i class="fa-solid fa-comment me-1"></i>{{ post.comment_set.count }}</p>
+                <p><i class="fa-solid fa-comment me-1"></i>{{ post.comments.count }}</p>
             </div>
         </div>
 
         <img src="{{ post.thumbnail.url }}" class="card-img-top img-fluid post-img" alt="">
         <div class="card-body">
-            <p class="card-text">{{ post.content|truncatechars:355 }}</p>
+            <p class="card-text">{{ post.content|truncatechars:355|safe }}</p>
             <div class="d-flex justify-content-between flex-wrap">
                 <a href="{% url 'blog:post' post.pk %}" class="btn btn-primary">Let's see</a>
                 {% if request.resolver_match.url_name == 'posts_by_author' %}
@@ -25,10 +25,10 @@
                 {% endif %}
             </div>
         </div>
-        <div class="d-flex cb-p justify-content-between card-footer text-muted">
+        {% comment %}<div class="d-flex cb-p justify-content-between card-footer text-muted">
             <p>{{ post.author }}</p>
             <p class="card-text"><small class="text-muted">{{ post.timestamp|date:"d/m/Y G:i" }}</small></p>
-        </div>
+        </div>{% endcomment %}
 
     </div>
 
