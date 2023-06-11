@@ -1,11 +1,9 @@
 from django.core.mail import send_mail
-from blog_feedback.tasks import send_feedback_email_task
+# from blog_feedback.tasks import send_feedback_email_task
 from django import forms
 
 
-class FeedbackForm(forms.Form):
-    email = forms.EmailField(label="Email Address")
-    message = forms.CharField(label="Message", widget=forms.Textarea(attrs={"rows": 5}))
-
-    def send_email(self):
-        send_feedback_email_task.delay(self.cleaned_data["email"], self.cleaned_data["message"])
+class EmailForm(forms.Form):
+    subject = forms.CharField(max_length=100)
+    message = forms.CharField(widget=forms.Textarea)
+    recipient_email = forms.EmailField()
