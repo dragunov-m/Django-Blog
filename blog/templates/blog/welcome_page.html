@@ -5,7 +5,6 @@
 
 {% block content %}
     <div class="container">
-        <div class="row">
 
             {% if messages %}
                 {% for message in messages %}
@@ -16,59 +15,123 @@
                 {% endfor %}
             {% endif %}
 
-            <p>
-                Welcome to the home base of Militaires Sans Frontieres!
-                This is Naked Snake, the founder and leader of our organization.
-                As a group of soldiers without borders, we strive to uphold the principles of loyalty, honor, and
-                integrity in all of our endeavors. Whether you're a member of our team or a visitor to our site,
-                we extend a warm welcome and invite you to explore all that we have to offer.
-                From training and missions to camaraderie and support,
-                we are committed to providing a home for those who share our values.
-                Thank you for joining us, and let's continue to forge our path forward together.
-            </p>
-            <p>
-                Here at Militaires Sans Frontieres, we believe that a true soldier is not defined by their uniform,
-                but by their actions and beliefs. That's why we stand for the freedom to choose our own battles,
-                and fight for causes that we believe in, regardless of political or national boundaries.
-                Our mission is to create a world where every soldier has the opportunity to serve with honor, dignity,
-                and purpose.
-            </p>
-            <p>
-                As part of our community, you'll have access to a wealth of resources and support,
-                including specialized training programs, cutting-edge technology and equipment,
-                and a network of like-minded individuals who share your passion for excellence.
-                Our team is made up of soldiers from all over the world, and we welcome diversity in all forms.
-            </p>
-            <p>
-                So whether you're a seasoned veteran or a newcomer to the field,
-                we invite you to join us on this journey towards a better future for all.
-                With your help, we can build a world where soldiers can serve with pride,
-                and make a difference in the lives of those around us.
-                Thank you for choosing Militaires Sans Frontieres,
-                and we look forward to working together towards a brighter tomorrow.
-            </p>
-            <p>
-                At Militaires Sans Frontieres, we understand that the life of a soldier can be a challenging one.
-                That's why we place a strong emphasis on camaraderie and support, both on and off the battlefield.
-                Our members are more than just soldiers; they are a family,
-                bound by a shared sense of purpose and commitment to one another.
-            </p>
-            <p>
-                We believe that everyone deserves the chance to lead a fulfilling and meaningful life,
-                and that includes soldiers. That's why we offer a range of programs and resources designed to promote
-                personal growth and development, from leadership training and mental health support to recreational
-                activities and community outreach.
-            </p>
-            <p>
-                Our organization is built on a foundation of trust and mutual respect,
-                and we take pride in our ability to create a safe and welcoming environment for all.
-                No matter where you come from or what your background may be, you will always find a home among us.
-            </p>
-            <p>
-                So if you're ready to take your place among the ranks of the finest soldiers in the world,
-                we invite you to join us at Militaires Sans Frontieres. Together, we can achieve greatness and make a
-                difference in the world. Thank you for considering us, and we hope to welcome you into our family soon.
-            </p>
-        </div>
+            <div class="row justify-content-between align-items-center" style="height: 85vh">
+                <div class="col-lg-6">
+                    <h1 class="font-weight-light" style="font-weight: 400">Hello, i'm <span class="font-weight-bold" style="font-weight: 700">Vladimir Marushkevich</span></h1>
+                    <h6>Python Developer and linux enjoyer :)</h6>
+                </div>
+                <div class="col-lg-3">
+                    <img style="max-width: 100%; border-radius: 10px" src="https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png?20150327203541" alt="avatar">
+                </div>
+            </div>
+
+            <section class="d-flex justify-content-center justify-content-lg-between pb-5">
+
+                <div>
+                    <a href="" class="me-4 link-secondary">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="" class="me-4 link-secondary">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="" class="me-4 link-secondary">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="" class="me-4 link-secondary">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="" class="me-4 link-secondary">
+                        <i class="fab fa-github"></i>
+                    </a>
+                </div>
+
+                <div class="d-none d-lg-block">
+                    <a href="mailto:contact.marushkevich@gmail.com" style="color: black">contact.marushkevich@gmail.com</a>
+                </div>
+
+            </section>
+
+            <div style="height: 100vh; display: flex; align-items: center;">
+                <div style="width: 100%">
+                    <h2>What I do?</h2>
+                    <div class="d-flex justify-content-between mt-5">
+                        <div class="col-lg-3">
+                            <i class="fa-solid fa-brush mb-3" style="font-size: 40px"></i>
+                            <h5>UI/UX</h5>
+                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                        </div>
+                        <div class="col-lg-3">
+                            <i class="fa-solid fa-desktop mb-3" style="font-size: 40px"></i>
+                            <h5>Website</h5>
+                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                        </div>
+                        <div class="col-lg-3">
+                            <i class="fa-solid fa-mobile mb-3" style="font-size: 40px"></i>
+                            <h5>Mobile Apps</h5>
+                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="height: 85vh; display: flex; align-items: center;">
+                <div style="width: 100%">
+                    <h2>Skills</h2>
+                    <div class="d-flex justify-content-between mt-5">
+                        <div class="col-lg-3 d-flex">
+                            <i class="fa-brands fa-html5" style="font-size: 32px"></i>
+                            <p>HTML</p>
+                        </div>
+                        <div class="col-lg-3 d-flex">
+                            <i class="fa-brands fa-python" style="font-size: 32px"></i>
+                            <p>Python</p>
+                        </div>
+                        <div class="col-lg-3 d-flex">
+                            <i class="fa-brands fa-docker" style="font-size: 32px"></i>
+                            <p>Docker</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="height: 85vh; display: flex; align-items: center;">
+                <div style="width: 100%">
+                    <h2>Experience</h2>
+                    <div class="mt-5">
+                        <div class="col-lg-12">
+                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                        </div>
+                        <div class="col-lg-12">
+                            <h5>Website</h5>
+                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                        </div>
+                        <div class="col-lg-12">
+                            <h5>Mobile Apps</h5>
+                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="height: 85vh; display: flex; align-items: center;">
+                <div style="width: 100%">
+                    <h2>What I do?</h2>
+                    <div class="d-flex justify-content-between mt-5">
+                        <div class="col-lg-3">
+                            <h5>UI/UX</h5>
+                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                        </div>
+                        <div class="col-lg-3">
+                            <h5>Website</h5>
+                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                        </div>
+                        <div class="col-lg-3">
+                            <h5>Mobile Apps</h5>
+                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
     </div>
 {% endblock %}
