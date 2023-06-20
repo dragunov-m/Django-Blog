@@ -89,7 +89,8 @@ class CustomLoginView(LoginView):
     redirect_authenticated_user = True
 
     def form_valid(self, form):
-        messages.success(self.request, f'Welcome back, {self.request.user.username}!')
+        username = form.cleaned_data.get('username')
+        messages.success(self.request, f'Welcome back, {username}!')
         return super().form_valid(form)
 
     def form_invalid(self, form):
