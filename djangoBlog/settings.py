@@ -53,6 +53,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'blog.middleware.AdditionalDataMiddleware',
 ]
 
 ROOT_URLCONF = 'djangoBlog.urls'
@@ -145,6 +146,9 @@ MEDIA_ROOT = BASE_DIR / "media_cdn"
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Logout Redirect
+LOGOUT_REDIRECT_URL = '/'
 
 # Celery Configuration Options
 CELERY_TIMEZONE = "Europe/Minsk"
