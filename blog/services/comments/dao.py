@@ -17,6 +17,6 @@ class CommentsDAO:
         return comment
 
     @classmethod
-    def delete_comment(cls):
-        comment = Comment.objects.get()
+    def delete_comment(cls, post_id: int, author_id: int, content: str):
+        comment = Comment.objects.get(post=post_id, author=author_id, content=content)
         comment.delete()
