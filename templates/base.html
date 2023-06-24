@@ -27,15 +27,14 @@
 
                 <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
                     <li class="nav-item">
-                        <a href="{% url 'blog:home' %}" class="nav-link px-4 link-dark {% if request.resolver_match.url_name == 'home' %}active{% endif %}">Home</a>
+                        <a href="{% url 'blog:home' %}" class="nav-link px-4 link-dark">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a href="{% url 'blog:about' %}" class="nav-link px-4 link-dark {% if request.resolver_match.url_name == 'about' %}active{% endif %}">Portfolio</a>
+                        <a href="{% url 'blog:about' %}" class="nav-link px-4 link-dark">Portfolio</a>
                     </li>
                     <li class="nav-item">
-                        <a href="{% url 'blog:blog' %}" class="nav-link px-4 link-dark {% if request.resolver_match.url_name == 'blog' %}active{% endif %}">Blog</a>
+                        <a href="{% url 'blog:blog' %}" class="nav-link px-4 link-dark">Blog</a>
                     </li>
-                    {% comment %}<li class="nav-item"><a href="#" class="nav-link px-2 link-dark {% if request.resolver_match.url_name == 'home' %}active{% endif %}">Products</a></li>{% endcomment %}
                 </ul>
 
                 <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" action="{% url 'blog:search' %}">
@@ -84,114 +83,70 @@
 
     <footer class="text-center text-lg-start bg-white text-muted">
 
-{#        <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">#}
-{##}
-{#            <div class="me-5 d-none d-lg-block">#}
-{#                <span>Get connected with us on social networks:</span>#}
-{#            </div>#}
-{##}
-{#            <div>#}
-{#                <a href="" class="me-4 link-secondary">#}
-{#                    <i class="fab fa-facebook-f"></i>#}
-{#                </a>#}
-{#                <a href="" class="me-4 link-secondary">#}
-{#                    <i class="fab fa-twitter"></i>#}
-{#                </a>#}
-{#                <a href="" class="me-4 link-secondary">#}
-{#                    <i class="fab fa-google"></i>#}
-{#                </a>#}
-{#                <a href="" class="me-4 link-secondary">#}
-{#                    <i class="fab fa-instagram"></i>#}
-{#                </a>#}
-{#                <a href="" class="me-4 link-secondary">#}
-{#                    <i class="fab fa-linkedin"></i>#}
-{#                </a>#}
-{#                <a href="" class="me-4 link-secondary">#}
-{#                    <i class="fab fa-github"></i>#}
-{#                </a>#}
-{#            </div>#}
-{##}
-{#        </section>#}
 
-
-
-        <section class="">
-            <div class="container text-center text-md-start mt-5">
-
-                <div class="row mt-3">
-
-                    <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
-
-                        <h6 class="text-uppercase fw-bold mb-4">
-                            <i class="fas fa-gem me-3 text-secondary"></i>Militaires Sans Frontieres
-                        </h6>
-                        <p>
-                            MSF was a mercenary group founded by Big Boss in 1974 to carry out missions globally with skilled members and a mobile base.
-                        </p>
-                    </div>
-
-
-
-                    <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-
-                        <h6 class="text-uppercase fw-bold mb-4">
-                            Products
-                        </h6>
-                        <p>
-                            <a href="#" class="text-reset">Angular</a>
-                        </p>
-                        <p>
-                            <a href="#" class="text-reset">React</a>
-                        </p>
-                        <p>
-                            <a href="#" class="text-reset">Vue</a>
-                        </p>
-                        <p>
-                            <a href="#" class="text-reset">Laravel</a>
-                        </p>
-                    </div>
-
-
-
-                    <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
-
-                        <h6 class="text-uppercase fw-bold mb-4">
-                            Useful links
-                        </h6>
-                        <p>
-                            <a href="#" class="text-reset">Pricing</a>
-                        </p>
-                        <p>
-                            <a href="#" class="text-reset">Settings</a>
-                        </p>
-                        <p>
-                            <a href="#" class="text-reset">Orders</a>
-                        </p>
-                        <p>
-                            <a href="#" class="text-reset">Help</a>
-                        </p>
-                    </div>
-
-
-
-                    <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
-
-                        <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
-                        <p>
-                            <i class="fas fa-home me-3 text-secondary"></i>
-                            <span>Poland, Wroclaw</span>
-                        </p>
-                        <p>
-                            <i class="fas fa-envelope me-3 text-secondary"></i>
-                            <a class="text-secondary" href="mailto:msf@gmail.com">contact.marushkevich@gmail.com</a>
-                        </p>
-
-                    </div>
-
+        <div class="container text-center text-md-start mt-5">
+            <div class="row mt-3">
+                <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                    <h6 class="text-uppercase fw-bold mb-4">
+                        <i class="fas fa-gem me-3 text-secondary"></i>Militaires Sans Frontieres
+                    </h6>
+                    <p>
+                        MSF was a mercenary group founded by Big Boss in 1974 to carry out missions globally with skilled members and a mobile base.
+                    </p>
                 </div>
 
+                <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+                    <h6 class="text-uppercase fw-bold mb-4">
+                        Products
+                    </h6>
+                    <p>
+                        <a href="#" class="text-reset">Angular</a>
+                    </p>
+                    <p>
+                        <a href="#" class="text-reset">React</a>
+                    </p>
+                    <p>
+                        <a href="#" class="text-reset">Vue</a>
+                    </p>
+                    <p>
+                        <a href="#" class="text-reset">Laravel</a>
+                    </p>
+                </div>
+
+
+
+                <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+                    <h6 class="text-uppercase fw-bold mb-4">
+                        Useful links
+                    </h6>
+                    <p>
+                        <a href="#" class="text-reset">Pricing</a>
+                    </p>
+                    <p>
+                        <a href="#" class="text-reset">Settings</a>
+                    </p>
+                    <p>
+                        <a href="#" class="text-reset">Orders</a>
+                    </p>
+                    <p>
+                        <a href="#" class="text-reset">Help</a>
+                    </p>
+                </div>
+
+                <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+                    <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
+                    <p>
+                        <i class="fas fa-home me-3 text-secondary"></i>
+                        <span>Poland, Wroclaw</span>
+                    </p>
+                    <p>
+                        <i class="fas fa-envelope me-3 text-secondary"></i>
+                        <a class="text-secondary" href="mailto:msf@gmail.com">contact.marushkevich@gmail.com</a>
+                    </p>
+                </div>
             </div>
-        </section>
+        </div>
+
 
 
         <div class="text-center p-4">
