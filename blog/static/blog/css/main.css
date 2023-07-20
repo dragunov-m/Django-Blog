@@ -10,6 +10,13 @@ body {
   margin: 0;
 }
 
+.link-secondary {
+  font-size: 24px;
+}
+.link-secondary .fa-brands {
+  color: black;
+}
+
 .profile-image {
   width: 350px;
 }
@@ -42,6 +49,42 @@ body {
 }
 .card .timestamp {
   margin-left: 5px;
+}
+
+.development {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+}
+.development__title {
+  font-weight: 700;
+}
+.development__icon {
+  font-size: 40px;
+}
+.development__desc {
+  max-width: 325px;
+}
+
+.skills {
+  height: 85vh;
+  display: flex;
+  align-items: center;
+}
+.skills__title {
+  font-weight: 700;
+}
+.skills__icon {
+  font-size: 56px;
+}
+.skills__desc {
+  font-size: 24px;
+}
+
+.experience {
+  height: 85vh;
+  display: flex;
+  align-items: center;
 }
 
 /*# sourceMappingURL=main.css.map */
