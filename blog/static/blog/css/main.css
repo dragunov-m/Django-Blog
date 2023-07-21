@@ -67,7 +67,7 @@ body {
 }
 
 .skills {
-  height: 85vh;
+  height: 100vh;
   display: flex;
   align-items: center;
 }
@@ -82,7 +82,7 @@ body {
 }
 
 .experience {
-  height: 85vh;
+  height: 100vh;
   display: flex;
   align-items: center;
 }
