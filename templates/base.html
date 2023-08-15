@@ -41,34 +41,29 @@
                     <input type="search" name="q" class="form-control" placeholder="Search..." aria-label="Search">
                 </form>
                 {% if user.is_authenticated %}
-                    {% with author=user.author %}
-                        <div class="dropdown text-end">
-                        {% if author.profile_picture %}
-                            <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-                                <img class="rounded-circle account-img header-profile-pic" src="{{ author.profile_picture.url }}" alt="{{ author.user.username }}'s profile picture">
-                            </a>
-                        {% else %}
-                            <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-                                <img class="rounded-circle account-img header-profile-pic" src="{% static 'blog_auth/profile_pics/avatar.webp' %}"  alt="{{ author.user.username }}'s profile picture">
-                            </a>
-                        {% endif %}
-                    {% endwith %}
-                            <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
-                                <li><a class="dropdown-item" href="{% url 'blog:new_post' %}">New post</a></li>
-                                <li><a class="dropdown-item" href="{% url 'blog:posts_by_author' username=user.username %}">My posts</a></li>
-                                <li><a class="dropdown-item" href="{% url 'blog_auth:profile' %}">Profile</a></li>
-                                <li><hr class="dropdown-divider"></li>
-                                <li><a class="dropdown-item" href="{% url 'blog_auth:logout' %}">Sign out</a></li>
-                            </ul>
-                        </div>
-                {% else %}
-                    {% if not user.is_authenticated and request.resolver_match.url_name == 'login' or not user.is_authenticated and request.resolver_match.url_name == 'signup' %}
-                        {% else %}
-                        <div class="text-end">
-                            <a class="btn btn-outline-dark me-2" href="{% url 'blog_auth:login' %}">Login</a>
-                            <a class="btn btn-warning" href="{% url 'blog_auth:signup' %}">Sign-up</a>
-                        </div>
+                    <div class="dropdown text-end">
+                    {% if user.avatar %}
+                        <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img class="rounded-circle account-img header-profile-pic" src="{{ user.avatar.url }}" alt="{{ user.username }}'s profile picture">
+                        </a>
+                    {% else %}
+                        <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img class="rounded-circle account-img header-profile-pic" src="{% static 'blog_auth/profile_pics/avatar.webp' %}"  alt="{{ user.username }}'s profile picture">
+                        </a>
                     {% endif %}
+                        <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
+                            <li><a class="dropdown-item" href="{% url 'blog:new_post' %}">New post</a></li>
+                            <li><a class="dropdown-item" href="{% url 'blog:posts_by_author' username=user.username %}">My posts</a></li>
+                            <li><a class="dropdown-item" href="{% url 'blog_auth:profile' %}">Profile</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="{% url 'blog_auth:logout' %}">Sign out</a></li>
+                        </ul>
+                    </div>
+                {% else %}
+                    <div class="text-end">
+                        <a class="btn btn-outline-dark me-2" href="{% url 'blog_auth:login' %}">Login</a>
+                        <a class="btn btn-warning" href="{% url 'blog_auth:signup' %}">Sign-up</a>
+                    </div>
                 {% endif %}
             </div>
         </div>

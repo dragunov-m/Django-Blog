@@ -33,8 +33,6 @@ ALLOWED_HOSTS = ['127.0.0.1']
 INSTALLED_APPS = [
     'blog.apps.BlogConfig',
     'blog_auth.apps.BlogAuthConfig',
-    'blog_comments.apps.BlogCommentsConfig',
-    'blog_feedback.apps.BlogFeedbackConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -45,6 +43,8 @@ INSTALLED_APPS = [
     'rest_framework_simplejwt',
     'markdown',
 ]
+
+AUTH_USER_MODEL = 'blog_auth.User'
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
@@ -211,6 +211,6 @@ CELERY_RESULT_SERIALIZER = 'json'
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'email@gmail.com'  # Replace with your Yandex Mail email address
+EMAIL_HOST_USER = 'email@gmail.com'
 EMAIL_HOST_PASSWORD = 'app_google_account_key'
 EMAIL_USE_TLS = True
