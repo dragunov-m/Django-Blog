@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth import get_user_model
-from django.contrib.auth.forms import UserCreationForm
-from blog.models import Author
+from django.contrib.auth.forms import UserCreationForm, UserChangeForm
+
 User = get_user_model()
 
 
@@ -12,23 +12,17 @@ class UserRegistrationForm(UserCreationForm):
         fields = ('username', 'email', 'password1', 'password2')
 
 
-class UserUpdateForm(forms.ModelForm):
-    email = forms.EmailInput()
+class ProfileUpdateForm(UserChangeForm):
+    password = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'form-control'}),
+                               label='New Password', required=False)
 
     class Meta:
         model = User
-        fields = ('username', 'email')
+        fields = ('first_name', 'last_name', 'username', 'email', 'avatar',)
         widgets = {
+            'first_name': forms.TextInput(attrs={'class': 'form-control'}),
+            'last_name': forms.TextInput(attrs={'class': 'form-control'}),
+            'avatar': forms.FileInput(attrs={'class': 'form-control'}),
             'username': forms.TextInput(attrs={'class': 'form-control'}),
             'email': forms.EmailInput(attrs={'class': 'form-control'}),
-        }
-
-
-class ProfileUpdateForm(forms.ModelForm):
-
-    class Meta:
-        model = Author
-        fields = ('profile_picture',)
-        widgets = {
-            'profile_picture': forms.FileInput(attrs={'class': 'form-control'}),
         }
