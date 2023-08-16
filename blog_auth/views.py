@@ -6,11 +6,12 @@ from django.contrib.auth.views import LoginView
 from django.urls import reverse_lazy
 from django.contrib import messages
 from django.views.generic import CreateView, UpdateView
-from .forms import UserRegistrationForm, ProfileUpdateForm
+from .forms import UserRegistrationForm, ProfileUpdateForm, LoginForm
+
 User = get_user_model()
 
 
-class ProfileView(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
+class Profile(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
     model = User
     form_class = ProfileUpdateForm
     template_name = 'blog_auth/profile_page.html'
@@ -32,7 +33,8 @@ class ProfileView(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
         return super().form_valid(form)
 
 
-class LoginView(LoginView):
+class Login(LoginView):
+    form_class = LoginForm
     template_name = 'blog_auth/login_page.html'
     redirect_authenticated_user = True
 
