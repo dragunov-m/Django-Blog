@@ -1,8 +1,32 @@
 from django import forms
 from django.contrib.auth import get_user_model
-from django.contrib.auth.forms import UserCreationForm, UserChangeForm
+from django.contrib.auth.forms import UserCreationForm, UserChangeForm, AuthenticationForm
 
 User = get_user_model()
+
+
+class LoginForm(AuthenticationForm):
+    username = forms.EmailField(
+        max_length=100,
+        required=True,
+        widget=forms.TextInput(
+            attrs={
+                "class": "form-control form-control-lg",
+                "placeholder": "Email",
+                "type": "email",
+            }
+        ),
+    )
+    password = forms.CharField(
+        required=True,
+        widget=forms.TextInput(
+            attrs={
+                "class": "form-control form-control-lg",
+                "type": "password",
+                "placeholder": "Password",
+            }
+        ),
+    )
 
 
 class UserRegistrationForm(UserCreationForm):
