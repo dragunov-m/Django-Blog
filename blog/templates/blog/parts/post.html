@@ -5,7 +5,7 @@
         <div class="card-header post-header">
             <div class="d-flex align-items-center">
                 <img src="{{ post.author.avatar.url }}" class="post-profile-pic me-2" alt="{{ post.author.username }}'s profile picture">
-                <p>{{ post.author }}</p>
+                <p>{{ post.author.username }}</p>
                 <p class="card-text timestamp"><small class="text-muted">{{ post.timestamp|date:"d/m/Y G:i" }}</small></p>
             </div>
             <h5 class="card-title">{{ post.title }}</h5>
