@@ -6,7 +6,7 @@
                     <img class="rounded-circle shadow-1-strong me-3"
                          src="{{ comment.author.avatar.url }}" alt="{{ comment.author }}'s profile picture" width="60"
                          height="60" />
-                    <p class="mb-0 me-3 small">{{ comment.author }}</p>
+                    <p class="mb-0 me-3 small">{{ comment.author.username }}</p>
                     <div>
 {#                        <a href="{% url 'blog_auth:profile' %}"><h6 class="fw-bold text-primary mb-1">{{ comment.author }}</h6></a>#}
                         <p class="text-muted small mb-0">
