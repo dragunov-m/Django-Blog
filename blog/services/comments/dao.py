@@ -1,4 +1,4 @@
-from blog_comments.models import Comment
+from blog.models import Comment
 
 
 class CommentsDAO:
