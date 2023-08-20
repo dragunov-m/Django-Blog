@@ -1,4 +1,7 @@
+# Core Django
 from django import forms
+
+# blog app
 from .models import Post, Comment
 
 

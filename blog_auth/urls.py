@@ -1,6 +1,9 @@
+# Core Django
 from django.urls import path
-from .views import SignUp, Login, Profile
 from django.contrib.auth.views import LogoutView
+
+# blog_auth app
+from .views import SignUp, Login, Profile
 
 app_name = 'blog_auth'
 urlpatterns = [
