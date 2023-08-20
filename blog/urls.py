@@ -1,4 +1,7 @@
+# Core Django
 from django.urls import path
+
+# blog app
 from .views import AddPost, HomePage, AboutPage, BlogPage, PostPage, AuthorPost, SearchPost, EditPost
 
 app_name = 'blog'

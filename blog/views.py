@@ -1,3 +1,4 @@
+# Core Django
 from django.contrib.auth import get_user_model
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
@@ -7,8 +8,12 @@ from django.http import Http404
 from django.db.models import Q
 from django.views.generic import ListView, DetailView, CreateView, TemplateView, UpdateView
 from django.views.generic.edit import FormMixin
+
+# blog app
 from .models import Post
 from .forms import PostForm, CommentForm
+
+# Third-party app
 import markdown
 
 User = get_user_model()

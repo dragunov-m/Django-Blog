@@ -1,3 +1,4 @@
+# Core Django
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
 from django.shortcuts import redirect
@@ -6,6 +7,8 @@ from django.contrib.auth.views import LoginView
 from django.urls import reverse_lazy
 from django.contrib import messages
 from django.views.generic import CreateView, UpdateView
+
+# blog_auth app
 from .forms import UserRegistrationForm, ProfileUpdateForm, LoginForm
 
 User = get_user_model()
@@ -39,9 +42,10 @@ class Login(LoginView):
     redirect_authenticated_user = True
 
     def form_valid(self, form):
-        username = form.cleaned_data.get('username')
+        response = super().form_valid(form)
+        username = self.request.user.username
         messages.success(self.request, f'Welcome back, {username}!')
-        return super().form_valid(form)
+        return response
 
     def form_invalid(self, form):
         messages.error(self.request, 'Invalid login or password')
